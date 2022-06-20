@@ -1,0 +1,46 @@
+.leght {
+    text-align: center;
+}
+
+body {
+    margin: 15% 15%;
+}
+
+.letter {
+    background-image: url(img/example.jpg);
+    font-family: arial;
+    margin: 5%;
+    color: white;
+}
+
+.image {
+    background-image: url(img/example.jpg);
+    width: 950px;
+    height: 250px;
+    color: white;
+    text-align: left;
+}
+
+.imagecenter {
+    text-align: center;
+    margin: -20% 25% -12%;
+    color: white;
+}
+
+.imageright {
+    text-align: right;
+    margin: -2% 15% 20%;
+    color: white;
+}
+
+.imagese {
+    background-image: url(img/example.jpg);
+    color: white;
+    width: 950px;
+    height: 250px;
+}
+
+.classce {
+    text-align: center;
+    margin: -20% 25% -12%;
+}
