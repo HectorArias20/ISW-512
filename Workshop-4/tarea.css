@@ -1,3 +1,7 @@
+:root {
+    --primarycolor: white;
+}
+
 .leght {
     text-align: center;
 }
@@ -10,32 +14,32 @@ body {
     background-image: url(img/example.jpg);
     font-family: arial;
     margin: 5%;
-    color: white;
+    color: var(--primarycolor);
 }
 
 .image {
     background-image: url(img/example.jpg);
     width: 950px;
     height: 250px;
-    color: white;
+    color: var(--primarycolor);
     text-align: left;
 }
 
 .imagecenter {
     text-align: center;
     margin: -20% 25% -12%;
-    color: white;
+    color: var(--primarycolor);
 }
 
 .imageright {
     text-align: right;
     margin: -2% 15% 20%;
-    color: white;
+    color: var(--primarycolor);
 }
 
 .imagese {
     background-image: url(img/example.jpg);
-    color: white;
+    color: var(--primarycolor);
     width: 950px;
     height: 250px;
 }
@@ -43,4 +47,8 @@ body {
 .classce {
     text-align: center;
     margin: -20% 25% -12%;
+}
+
+p::selection {
+    color: yellow;
 }
