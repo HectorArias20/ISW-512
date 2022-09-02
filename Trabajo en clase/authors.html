@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/template.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <h2>Author List</h2>
+        <a href="addauthors.html">New Author</a>
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody id="authors_table">
+            </tbody>
+        </table>
+    </section>
+    <script>
+        function showListOfauthors() {
+            const authors = JSON.parse(localStorage.getItem('authors'));
+            const table = document.getElementById('authors_table');
+
+            if (authors) {
+                let rows = "";
+                authors.forEach((author, index) => {
+                    let row = `<tr>`;
+                    row += `<td>${author.id}</td>`;
+                    row += `<td>${author.name}</td>`;
+                    //row += `<td>${book.author}</td>`;
+                    row += `<td> <a onclick="editauthor(${author.id})" class="link edit">Edit</a>  |  <a  onclick="deleteBook(${author.id});" class="link delete">Delete</a>  </td>`;
+                    rows += row + "</tr>";
+                });
+                table.innerHTML = rows;
+            }
+
+        }
+        showListOfauthors();
+
+        function editauthor(idauthor) {
+            let valor2 = prompt("Nombre del Author", 0);
+            let authors = JSON.parse(localStorage.getItem('authors'));
+            for (i = 0; i < libros.length; i++) {
+                if (authors[i].id == idauthor) {
+                    authors[i].author = valor2;
+                }
+            }
+            localStorage.removeItem('authors');
+            localStorage.setItem('authors', JSON.stringify(authors));
+            showListOfauthors();
+
+        }
+        editauthor(idauthor);
+
+        function deleteauthors(idauthor) {
+
+            let authors = JSON.parse(localStorage.getItem('authors'));
+            var x = authors.length;
+            if (x == 1) {
+                localStorage.removeItem('authors');
+                authors = '';
+            }
+            for (i = 0; i < authors.length; i++) {
+                if (authors[i].id == idauthor) {
+                    let removedLibraries = authors.splice(i, 1); //ELIMINAR POR INDICE
+                    authors = removedLibraries;
+                }
+            }
+            localStorage.removeItem('authors');
+            localStorage.setItem('authors', JSON.stringify(authors));
+
+        }
+        deleteauthors(idauthor);
+    </script>
+
+</body>
+
+</html>
